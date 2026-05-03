@@ -36,5 +36,9 @@ COPY lib/postgresql-42.7.4.jar /opt/hive/lib/postgresql-42.7.4.jar
 RUN chown hive:hive /opt/hive/lib/postgresql-42.7.4.jar
 RUN chown -R hive:hive /opt/hive/conf
 
+# Ensure the required directories exist and change ownership recursively
+RUN mkdir -p /opt/hive/conf \
+    && chown -R hive:hive /opt/hive
+
 # Drop privileges — all runtime operations run as the hive user
 USER hive

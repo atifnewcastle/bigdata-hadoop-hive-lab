@@ -7,6 +7,10 @@
 -- CREATE DATABASE metastore;  <--- COMMENT THIS OUT OR DELETE IT
 
 -- Hue web UI database (Hue's syncdb / migrate will populate the schema)
+-- contents of init-hive-db.sql
+CREATE USER hive WITH PASSWORD 'hive';
+CREATE DATABASE hive;
+GRANT ALL PRIVILEGES ON DATABASE hive TO hive;
 CREATE DATABASE hue;
 
 -- Grant full privileges to the lab user on both databases
