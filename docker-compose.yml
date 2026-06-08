@@ -37,7 +37,7 @@ services:
   # ---------------------------------------------------------------------------
   namenode:
     image: bde2020/hadoop-namenode:${HADOOP_IMAGE_TAG}
-    container_name: namenode
+    #container_name: namenode
     restart: unless-stopped
     ports:
       - "9870:9870"   # NameNode Web UI  (Lab 1 — HDFS health check)
@@ -66,7 +66,7 @@ services:
 
   datanode:
     image: bde2020/hadoop-datanode:${HADOOP_IMAGE_TAG}
-    container_name: datanode
+    #container_name: datanode
     restart: unless-stopped
     environment:
       SERVICE_PRECONDITION: "namenode:9870"
@@ -90,7 +90,7 @@ services:
   # ---------------------------------------------------------------------------
   resourcemanager:
     image: bde2020/hadoop-resourcemanager:${HADOOP_IMAGE_TAG}
-    container_name: resourcemanager
+    #container_name: resourcemanager
     restart: unless-stopped
     ports:
       - "8088:8088"   # YARN Resource Manager UI (Lab 4 — monitor MR jobs)
@@ -137,7 +137,7 @@ services:
 
   nodemanager:
     image: bde2020/hadoop-nodemanager:${HADOOP_IMAGE_TAG}
-    container_name: nodemanager
+    #container_name: nodemanager
     restart: unless-stopped
     environment:
       CORE_CONF_fs_defaultFS: hdfs://namenode:9000
@@ -308,7 +308,7 @@ services:
   hue:
     image: ${HUE_IMAGE}
     container_name: hue
-    restart: unless-stopped
+    #restart: unless-stopped
     ports:
       - "8888:8888"   # Hue Web UI (Lab 5)
     volumes:
