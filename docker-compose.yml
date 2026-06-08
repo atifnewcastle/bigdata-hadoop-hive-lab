@@ -73,7 +73,8 @@ services:
       CORE_CONF_fs_defaultFS: hdfs://namenode:9000
       HDFS_CONF_dfs_replication: "1"
     volumes:
-      - datanode_data:/hadoop/dfs/data        # persistent HDFS block storage
+     #- datanode_data:/hadoop/dfs/data        # persistent HDFS block storage
+      - /hadoop/dfs/data
     networks:
       - bigdata-net
     depends_on:
